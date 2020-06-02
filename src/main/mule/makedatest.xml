@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="e9198687-2e64-44ba-a0a7-cc13476f109f" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="makedatestFlow" doc:id="9a9c4ed4-9e78-4e99-b219-5c0778754864" >
+		<http:listener doc:name="Listener" doc:id="6cb8b581-a99e-4763-bb69-b98a7c2f2d6f" config-ref="HTTP_Listener_config" path="/demo"/>
+		<set-payload value='#["Hi Makida"]' doc:name="Set Payload" doc:id="e4fe1640-96dc-4d7b-8270-64b91978e1b5" />
+	</flow>
+</mule>
